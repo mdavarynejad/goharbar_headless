@@ -1,8 +1,11 @@
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
+  flags: {
+    PARALLEL_QUERY_RUNNING: false
+  },
   siteMetadata: {
-    siteUrl: 'https://headlessmultilingual.gatsbyjs.io',
+    siteUrl: 'https://goharbar.com',
   },
   plugins: [
     {
@@ -22,7 +25,6 @@ module.exports = {
       __key: 'pages',
     },
     'gatsby-plugin-gatsby-cloud',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     {
