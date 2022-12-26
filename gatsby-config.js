@@ -32,7 +32,7 @@ module.exports = {
       options: {
         apiToken: '24a4b5e230d070e9df97581798d2ff',
         localeFallbacks: {
-          'ar-AE': 'en',
+          'FA': 'en',
         },
       },
     },
