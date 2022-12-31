@@ -1,9 +1,9 @@
 {
-  "name": "headless-gatsby-multilang",
+  "name": "goharbar_website",
   "version": "1.0.0",
   "private": false,
-  "description": "Headless Multilingual Starter for Gatsby",
-  "author": "Simone Mastromattei",
+  "description": "Goharbar sitemap",
+  "author": "Mohsen Davarynejad",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
