@@ -5,6 +5,7 @@ import { Hero } from '../components/Layout/Hero';
 import { Navigator } from '../components/Navigator';
 import { RichText } from '../components/Layout/RichText';
 import { ArticleCard } from '../components/Layout/Blog/Cards/ArticleCard';
+
 import {
   SectionGridThreeCols,
   GridTextBox,
@@ -20,6 +21,7 @@ const HomepageTemplate = ({
       seo,
       hero: [{ heroAlt, heroTitle, heroSubtitle }],
       features,
+      calltoaction,
       featuredPostsTitle,
     },
     datoCmsBlogRoot: { id },
@@ -53,6 +55,11 @@ const HomepageTemplate = ({
           ))}
         </SectionGridThreeCols>
       }
+    />
+    <Hero
+      caption={calltoaction}
+      title={calltoaction}
+      subtitle={heroSubtitle}
     />
     {postNodes.length > 0 && (
       <section style={{ paddingTop: 'var(--globalPaddingTb)' }}>
@@ -111,6 +118,7 @@ export const query = graphql`
         heroTitle
         heroSubtitle
       }
+      calltoaction
       features {
         id: originalId
         title

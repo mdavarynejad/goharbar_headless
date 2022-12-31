@@ -6,7 +6,7 @@ import { StructuredText } from 'react-datocms';
 
 import { usePageLocale } from '../../../hooks/usePageLocale';
 
-import { Wrapper, Container, Column } from './styles';
+import { Wrapper, Container, CallOutContainer, Column } from './styles';
 
 export const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -18,6 +18,9 @@ export const Footer = () => {
             value
           }
           textRight {
+            value
+          }
+          textMid {
             value
           }
           locale
@@ -34,6 +37,23 @@ export const Footer = () => {
 
   return (
     <Wrapper>
+      <CallOutContainer>
+        {nodes
+          .filter(({ locale }) => locale === pageLocale)
+          .map(
+            ({
+              id,
+              textMid: { value: textMidValue },
+            }) => (
+              <Fragment key={id}>
+                <Column>
+                  <StructuredText data={textMidValue} />
+                </Column>
+              </Fragment>
+            )
+          )}
+      </CallOutContainer>
+
       <Container>
         {nodes
           .filter(({ locale }) => locale === pageLocale)

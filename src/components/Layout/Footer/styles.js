@@ -23,6 +23,17 @@ const Container = styled.div`
   }
 `;
 
+const CallOutContainer = styled.div`
+  width: 100%;
+  padding: var(--globalPaddingLr) 0;
+  align-items: center;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    gap: var(--gapSmall);
+  }
+`;
+
 const Column = styled.div`
   font-size: var(--baseS);
   text-align: center;
@@ -36,4 +47,4 @@ const Column = styled.div`
   }
 `;
 
-export { Wrapper, Container, Column };
+export { Wrapper, Container, CallOutContainer, Column };

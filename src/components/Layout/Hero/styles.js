@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.section`
-  width: 100%;
   display: grid;
+  background-color: #f1defa;
   padding: var(--globalPaddingTb) var(--globalPaddingLr);
   margin: auto;
   row-gap: var(--gapXL);
