@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 
 import { PageWrapper } from '../components/Layout/PageWrapper';
 import { Hero } from '../components/Layout/Hero';
+import { CallToAction } from '../components/Layout/CallToAction';
 import { Navigator } from '../components/Navigator';
 import { RichText } from '../components/Layout/RichText';
 import { ArticleCard } from '../components/Layout/Blog/Cards/ArticleCard';
@@ -22,6 +23,7 @@ const HomepageTemplate = ({
       hero: [{ heroAlt, heroTitle, heroSubtitle }],
       features,
       calltoaction,
+      calltoactionsubtitle,
       featuredPostsTitle,
     },
     datoCmsBlogRoot: { id },
@@ -56,11 +58,12 @@ const HomepageTemplate = ({
         </SectionGridThreeCols>
       }
     />
-    <Hero
+
+  <CallToAction
       caption={calltoaction}
-      title={calltoaction}
-      subtitle={heroSubtitle}
-    />
+      subtitle = {calltoactionsubtitle}
+  />
+
     {postNodes.length > 0 && (
       <section style={{ paddingTop: 'var(--globalPaddingTb)' }}>
         <SectionTitle>{featuredPostsTitle}</SectionTitle>
@@ -119,6 +122,7 @@ export const query = graphql`
         heroSubtitle
       }
       calltoaction
+      calltoactionsubtitle
       features {
         id: originalId
         title

@@ -1,12 +1,17 @@
 import styled, { css } from 'styled-components';
 
+const WrapperCallToAction = styled.section`
+  display: grid;
+  background: #dbd7d6;
+  `;
+
 const Wrapper = styled.section`
   display: grid;
   padding: var(--globalPaddingTb) var(--globalPaddingLr);
   margin: auto;
-  row-gap: var(--gapXL);
-  max-width: var(--globalContainer);
+  row-gap: var(--gapXL);  
   align-items: center;
+  
 
   ${({ isFullViewport }) =>
     isFullViewport &&
@@ -58,4 +63,4 @@ const Subtitle = styled.p`
   line-height: var(--bodyLineHeight);
 `;
 
-export { Wrapper, TextBox, Caption, Title, Subtitle };
+export { WrapperCallToAction, Wrapper, TextBox, Caption, Title, Subtitle };
