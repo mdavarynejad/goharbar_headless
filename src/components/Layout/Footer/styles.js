@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+const WrapperFooter = styled.footer`
+display: grid;
+background: #dbd7d6;
+`;
+
 const Wrapper = styled.footer`
   width: var(--globalContainer);
   width: 100%;
@@ -7,6 +12,8 @@ const Wrapper = styled.footer`
   margin: auto;
   padding: 0 var(--globalPaddingLr);
 `;
+
+
 
 const Container = styled.div`
   border-top: 1px solid var(--dividerColor);
@@ -47,4 +54,4 @@ const Column = styled.div`
   }
 `;
 
-export { Wrapper, Container, CallOutContainer, Column };
+export { WrapperFooter, Wrapper, Container, CallOutContainer, Column };

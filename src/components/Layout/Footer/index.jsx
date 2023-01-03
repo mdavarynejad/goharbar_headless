@@ -6,7 +6,7 @@ import { StructuredText } from 'react-datocms';
 
 import { usePageLocale } from '../../../hooks/usePageLocale';
 
-import { Wrapper, Container, CallOutContainer, Column } from './styles';
+import { WrapperFooter, Wrapper, Container, CallOutContainer, Column } from './styles';
 
 export const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -36,44 +36,46 @@ export const Footer = () => {
   } = data;
 
   return (
-    <Wrapper>
-      <CallOutContainer>
-        {nodes
-          .filter(({ locale }) => locale === pageLocale)
-          .map(
-            ({
-              id,
-              textMid: { value: textMidValue },
-            }) => (
-              <Fragment key={id}>
-                <Column>
-                  <StructuredText data={textMidValue} />
-                </Column>
-              </Fragment>
-            )
-          )}
-      </CallOutContainer>
+    <WrapperFooter>
+      <Wrapper>
+        <CallOutContainer>
+          {nodes
+            .filter(({ locale }) => locale === pageLocale)
+            .map(
+              ({
+                id,
+                textMid: { value: textMidValue },
+              }) => (
+                <Fragment key={id}>
+                  <Column>
+                    <StructuredText data={textMidValue} />
+                  </Column>
+                </Fragment>
+              )
+            )}
+        </CallOutContainer>
 
-      <Container>
-        {nodes
-          .filter(({ locale }) => locale === pageLocale)
-          .map(
-            ({
-              id,
-              textLeft: { value: textLeftValue },
-              textRight: { value: textRightValue },
-            }) => (
-              <Fragment key={id}>
-                <Column>
-                  <StructuredText data={textLeftValue} />
-                </Column>
-                <Column>
-                  <StructuredText data={textRightValue} />
-                </Column>
-              </Fragment>
-            )
-          )}
-      </Container>
-    </Wrapper>
+        <Container>
+          {nodes
+            .filter(({ locale }) => locale === pageLocale)
+            .map(
+              ({
+                id,
+                textLeft: { value: textLeftValue },
+                textRight: { value: textRightValue },
+              }) => (
+                <Fragment key={id}>
+                  <Column>
+                    <StructuredText data={textLeftValue} />
+                  </Column>
+                  <Column>
+                    <StructuredText data={textRightValue} />
+                  </Column>
+                </Fragment>
+              )
+            )}
+        </Container>
+      </Wrapper>
+    </WrapperFooter>
   );
 };
