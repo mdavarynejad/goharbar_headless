@@ -22,6 +22,7 @@ const ArticleTemplate = ({
     datoCmsBlogPost: {
       id,
       structuredBody,
+      subBody,
       title,
       subtitle,
       author,
@@ -60,7 +61,7 @@ const ArticleTemplate = ({
           <StructuredText
             key={id}
             data={structuredBody}
-            customRules={[
+            customNodeRules={[
               // eslint-disable-next-line react/no-unstable-nested-components
               renderNodeRule(isCode, ({ node: { language, code }, key }) => (
                 <div style={{ position: 'relative' }} key={key}>
@@ -105,6 +106,11 @@ const ArticleTemplate = ({
         )}
       </ArticleBody>
     </Section>
+    
+    <Section>
+      <h1 className="title" dangerouslySetInnerHTML={{ __html: subBody }} />
+    </Section>
+    
     {relatedPosts.length > 0 && (
       <Section>
         <SectionTitle noPaddings css={{ maxWidth: 'var(--articleContainer)' }}>
@@ -250,6 +256,7 @@ export const query = graphql`
         }
         value
       }
+      subBody
     }
   }
 `;
