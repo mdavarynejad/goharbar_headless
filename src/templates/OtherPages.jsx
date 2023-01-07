@@ -6,7 +6,9 @@ import { PageWrapper } from '../components/Layout/PageWrapper';
 import { Hero } from '../components/Layout/Hero';
 import { Navigator } from '../components/Navigator';
 import { RichText } from '../components/Layout/RichText';
+
 import {
+  Section,
   SectionGridThreeCols,
   SectionFlexTwoCols,
   SectionFlexTwoColsReverse,
@@ -20,7 +22,7 @@ import {
 
 const OtherPagesTemplate = ({
   data: {
-    datoCmsOtherPage: { seo, structuredBody },
+    datoCmsOtherPage: { seo, structuredBody},
   },
   pageContext,
 }) => (
@@ -48,6 +50,7 @@ const OtherPagesTemplate = ({
             secondFeatureDescription,
             thirdFeatureTitle,
             thirdFeatureDescription,
+            subBody,
           },
         }) => {
           switch (__typename) {
@@ -136,12 +139,23 @@ const OtherPagesTemplate = ({
                   </GridTextBox>
                 </SectionGridThreeCols>
               );
+            case 'DatoCmsSectionMarkdown':
+              return (
+                <Section>
+                  <h1 className="title" dangerouslySetInnerHTML={{ __html: subBody }} />
+                  <h1>This is heading 1</h1>
+                </Section>
+                
+
+              );
+  
             default:
               return null;
           }
         }}
       />
     )}
+
   </PageWrapper>
 );
 
@@ -219,6 +233,11 @@ export const query = graphql`
             secondFeatureDescription
             thirdFeatureTitle
             thirdFeatureDescription
+          }
+          ... on DatoCmsSectionMarkdown {
+            __typename
+            id: originalId
+            subBody
           }
         }
       }
