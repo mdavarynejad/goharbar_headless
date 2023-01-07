@@ -9,18 +9,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-htaccess',
-      options: {
-        https: true,
-        www: false,
-        SymLinksIfOwnerMatch: true,
-        host: 'goharbar.com', // if 'www' is set to 'false', be sure to also remove it here!
-        ErrorDocument: `
-          ErrorDocument 404 /404
-        `,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         fileName: isDev,
